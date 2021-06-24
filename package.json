@@ -1,0 +1,48 @@
+{
+  "name": "demo-testing-project",
+  "description": "JS Testing",
+  "version": "1.0.0",
+  "author": "Florentina Petcu <florentinap@4psa.com>",
+  "private": true,
+  "scripts": {
+    "start": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "clean": "rm -rf .nyc_output coverage node_modules package-lock.json",
+    "test": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha-webpack --webpack-config webpack.config.js --require test/setup.js test/**/*.spec.js"
+  },
+  "dependencies": {
+    "vue": "^2.4.4"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^4.5.13",
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^0.28.7",
+    "expect": "^21.2.1",
+    "faker": "^5.5.3",
+    "file-loader": "^1.1.4",
+    "html-webpack-plugin": "^5.3.1",
+    "jsdom": "^12.1.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^5.2.0",
+    "mocha-webpack": "^1.1.0",
+    "nyc": "^12.0.2",
+    "sinon": "^11.1.1",
+    "vue-loader": "^12.2.2",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^3.6.0",
+    "webpack-dev-server": "^2.9.1",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.(js|vue)"
+    ],
+    "instrument": false,
+    "sourceMap": false
+  }
+}
